@@ -1,0 +1,11 @@
+@import '../../assets/theme/core/core';
+.main-card {
+  @include responsiveMarginHalf('top');
+  @include responsiveMargin('bottom');
+  .content {
+    @include responsiveMargin('top');
+    .mat-headline {
+      font-weight: bold;
+    }
+  }
+}

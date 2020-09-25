@@ -1,0 +1,17 @@
+@import '../../../../assets/theme/core/core';
+.title {
+  color: $color_primary-contrast;
+}
+
+.active {
+  color: $color_primary-contrast;
+}
+.inactive {
+  color: $color_text-light;
+}
+.inactive:hover {
+  color: $color_primary-contrast;
+}
+.arrow {
+  color: $color_text-light;
+}

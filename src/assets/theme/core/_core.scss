@@ -1,0 +1,6 @@
+@import './palette';
+@import './typography';
+@import './var';
+@include mat-core($masoft-typography);
+
+$masoft-theme: mat-light-theme($masoft-primary, $masoft-accent, $masoft-warn);

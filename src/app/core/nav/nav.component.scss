@@ -1,0 +1,63 @@
+@import '../../../assets/theme/core/core';
+:host {
+  position: absolute;
+  z-index: -2;
+  width: 100%;
+  mat-toolbar {
+    padding: 0px 50px;
+    height: 48px;
+    background-color: $background-color;
+    * {
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -webkit-user-drag: none;
+    }
+    // TODO: refactor
+    .rippleButton {
+      cursor: pointer;
+      position: relative;
+      padding: 8px;
+      .navButton {
+        color: $color_text-darkest;
+        position: relative;
+        text-decoration: none;
+        transition: color 0.1s;
+        .mat-title {
+          margin: 0px 0px 0px 5px;
+        }
+      }
+    }
+
+    .rippleButton:hover:not(:focus) {
+      background-color: #f0f0f0;
+    }
+
+    .active {
+      background-color: rgb(240, 240, 240);
+    }
+
+    .spacer {
+      flex: 1 1 auto;
+    }
+
+    .letter-icon {
+      background-color: #e6e6e6;
+      width: 26px;
+      height: 26px;
+      line-height: 26px;
+      font-size: 14px;
+      text-align: center;
+      border-radius: 50%;
+    }
+
+    .dropdown {
+      background: white;
+      position: absolute;
+      color: $color_text-darker;
+      width: 250px;
+      z-index: -1;
+    }
+  }
+}

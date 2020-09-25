@@ -1,0 +1,68 @@
+@import '../../../assets/theme/core/core';
+mat-toolbar {
+  padding: 0px 24px;
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  * {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+  }
+  .rippleButton {
+    position: relative;
+    cursor: pointer;
+    width: 64px;
+    height: 64px;
+  }
+  .spacer {
+    flex: 1 1 auto;
+  }
+}
+
+.logo {
+  height: 64px;
+  cursor: pointer;
+}
+
+mat-sidenav-container {
+  position: absolute;
+  z-index: -3;
+  top: 64px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  mat-sidenav-content {
+    .main-content {
+      padding: 2% 5% 0 5%;
+      position: relative;
+    }
+  }
+}
+
+@include gt-sm {
+  mat-sidenav-container {
+    top: 110px;
+  }
+}
+
+@include xs {
+  mat-toolbar {
+    .rippleButton {
+      width: 56px;
+      height: 56px;
+    }
+  }
+  mat-sidenav-container {
+    top: 56px;
+  }
+  .notif {
+    width: 56px !important;
+    height: 56px !important;
+  }
+  .logo {
+    height: 56px !important;
+    padding-top: 0px !important;
+  }
+}

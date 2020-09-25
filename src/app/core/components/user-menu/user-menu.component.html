@@ -1,0 +1,38 @@
+<ng-container *ngIf="configService.isLogedin; else login">
+  <div class="user-button-container" #userButton (masoftClickOutside)="onClickOutside()">
+    <button class="user-button" mat-button (click)="toggleDropdown()" [class.open]="isOpen">
+      <span fxLayout="row" fxLayoutAlign="start center">
+        <span class="avatar-container" fxLayout="row" fxLayoutAlign="start center">
+          <img class="avatar" src="/assets/img/user.png" />
+          <i class="status primary"></i>
+        </span>
+        <span class="name" fxHide fxShow.gt-sm>{{ userMenuService.userName }}</span>
+        <mat-icon class="icon" fxHide fxShow.gt-sm>keyboard_arrow_down</mat-icon>
+      </span>
+    </button>
+
+    <div [@toggleDropdown]="isOpen" class="dropdown mat-elevation-z1">
+      <div class="content">
+        <div class="list">
+          <div *ngFor="let menuItem of userMenuService.userMenu; let last = last">
+            <div class="item" fxLayout="row" fxLayoutAlign="start center" matRipple (click)="userMenuService.clickEvent(menuItem)">
+              <mat-icon class="icon">{{ menuItem.icon }}</mat-icon>
+              <h1>{{ menuItem.title }}</h1>
+            </div>
+            <div *ngIf="!last" class="divider"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-template #login>
+  <div class="user-button-container">
+    <button class="user-button" mat-button (click)="loginEvent()">
+      <span fxLayout="row" fxLayoutAlign="space-evenly center" fxLayoutGap="5px">
+        <mat-icon class="icon">input</mat-icon>
+        <span class="login">Login</span>
+      </span>
+    </button>
+  </div>
+</ng-template>

@@ -1,0 +1,9 @@
+@import '~@angular/material/theming';
+@import './assets/theme/core/core';
+
+// include wanted theme here
+@include angular-material-theme($masoft-theme);
+
+body {
+  margin: 0;
+}

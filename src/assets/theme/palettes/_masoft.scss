@@ -1,0 +1,59 @@
+@import '~@angular/material/theming';
+
+$masoft-main: (
+  50: #e5e6e7,
+  100: #bec2c3,
+  200: #93999c,
+  300: #677074,
+  400: #475156,
+  500: #263238,
+  600: #222d32,
+  700: #1c262b,
+  800: #171f24,
+  900: #0d1317,
+  A100: #5bb9ff,
+  A200: #28a3ff,
+  A400: #008bf4,
+  A700: #007dda,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #ffffff,
+    A700: #ffffff
+  )
+);
+
+$masoft-primary: mat-palette($masoft-main);
+$masoft-accent: mat-palette($masoft-main, A400, A100, A200);
+$masoft-warn: mat-palette($mat-red);
+
+/*
+  Colors
+ */
+
+$color_primary: #4caf50;
+$color_accent: #e91e63;
+$color_warn: #f44336;
+$color_title: #eed686;
+
+$color_primary-contrast: #fff;
+$color_accent-contrast: #fff;
+$color_warn-contrast: #fff;
+
+$color_text-darkest: rgba(0, 0, 0, 0.87);
+$color_text-darker: #333;
+$color_text-dark: #666;
+$color_text-light: #999;
+
+$background-color: #fafafa;
+$background-highlight-color: darken($background-color, 3);

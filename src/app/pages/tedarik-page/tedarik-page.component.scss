@@ -1,0 +1,12 @@
+@import '../../../assets/theme/core/core';
+.main-card {
+  @include responsiveMarginHalf('top');
+  @include responsiveMargin('bottom');
+  .content {
+    .image-container {
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

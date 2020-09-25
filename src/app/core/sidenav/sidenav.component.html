@@ -1,0 +1,43 @@
+<mat-toolbar ngClass.lt-md="mat-elevation-z8" color="primary">
+  <div
+    *ngIf="configService.navItems.length"
+    fxHide.gt-sm
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    matRipple
+    matRippleColor="#FFFFFF1F"
+    class="rippleButton"
+    (click)="snav.toggle()"
+  >
+    <mat-icon>menu</mat-icon>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center center" fxHide.xs matRipple matRippleColor="#FFFFFF1F" class="logo" (click)="navMainPage()">
+    <ng-container *ngIf="configService.icon; else appDefualtName">
+      <div>
+        <img [style]="configService.icon.style" [src]="configService.icon.path" />
+      </div>
+    </ng-container>
+    <ng-template #appDefualtName>
+      <div class="mat-display-2">
+        {{ appName }}
+      </div>
+    </ng-template>
+  </div>
+  <span class="spacer"></span>
+  <masoft-notif-menu *ngIf="configService.showNotification"></masoft-notif-menu>
+  <masoft-user-menu *ngIf="configService.showLogin"></masoft-user-menu>
+</mat-toolbar>
+<masoft-nav *ngIf="configService.navItems.length" fxHide.lt-md></masoft-nav>
+<mat-sidenav-container [style]="{ top: configService.navItems.length ? '' : '56px' }">
+  <mat-sidenav #snav [(opened)]="isOpen" mode="over" [fixedInViewport]="false">
+    <masoft-nav-item [navItems]="configService.navItems"></masoft-nav-item>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <masoft-content-header></masoft-content-header>
+    <div class="main-content">
+      <masoft-breadcrumb [breadcrumbs]="breadcrumbs"></masoft-breadcrumb>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

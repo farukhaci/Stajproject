@@ -1,0 +1,50 @@
+<mat-toolbar (masoftClickOutside)="toggle(null)" class="mat-elevation-z8" fxLayout="row" fxLayoutAlign="start">
+  <div *ngFor="let navItem of showInToolBar()">
+    <div matRipple matRippleColor="#F1F1F1F1F1" class="rippleButton" routerLinkActive="active" (mouseover)="toggle(navItem)">
+      <ng-container [ngSwitch]="hasSubNav(navItem)">
+        <ng-container *ngSwitchCase="true">
+          <div class="navButton" fxLayout="row" fxLayoutAlign="space-between center">
+            <ng-container *ngIf="navItem.icon; else initials">
+              <mat-icon>{{ navItem.icon }}</mat-icon>
+            </ng-container>
+            <ng-template #initials>
+              <span class="letter-icon">{{ getInitials(navItem) }}</span>
+            </ng-template>
+            <span class="mat-title">{{ navItem.title }}</span>
+          </div>
+        </ng-container>
+        <ng-container *ngSwitchCase="false">
+          <a class="navButton" [routerLink]="navItem.navLink" fxLayout="row" fxLayoutAlign="space-between center">
+            <ng-container *ngIf="navItem.icon; else initials">
+              <mat-icon>{{ navItem.icon }}</mat-icon>
+            </ng-container>
+            <ng-template #initials>
+              <span class="letter-icon">{{ getInitials(navItem) }}</span>
+            </ng-template>
+            <span class="mat-title">{{ navItem.title }}</span>
+          </a>
+        </ng-container>
+      </ng-container>
+    </div>
+    <div *ngIf="hasSubNav(navItem)" [@toggleDropdown]="isOpen(navItem)" class="dropdown mat-elevation-z1">
+      <masoft-nav-item [navItems]="navItem.subNavs"></masoft-nav-item>
+    </div>
+  </div>
+
+  <div *ngIf="showInMore().length">
+    <div
+      matRipple
+      matRippleColor="#F1F1F1F1F1"
+      class="rippleButton"
+      (mouseover)="toggleMore()"
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      style="height: 48px;"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </div>
+    <div [@toggleDropdown]="isMoreOpen()" class="dropdown mat-elevation-z1">
+      <masoft-nav-item [navItems]="showInMore()"></masoft-nav-item>
+    </div>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,157 @@
+@import '../../../../assets/theme/core/core';
+
+.toolbar-button {
+  display: flex;
+  position: relative;
+  .icon-button {
+    height: 64px;
+    &.open {
+      background: #ffffff1f;
+    }
+  }
+
+  .dropdown {
+    background: white;
+    position: absolute;
+    color: $color_text-darkest;
+    top: 64px;
+    right: 0;
+    z-index: -1;
+    min-width: 350px;
+
+    @include xs {
+      min-width: 100vw;
+      top: 56px;
+    }
+
+    .card {
+      .header {
+        @include responsivePadding('left');
+        @include responsivePadding('right');
+        min-height: 64px;
+        border-bottom: 1px solid #e0e0e0;
+        .title {
+          .name {
+            color: $color_text-darker;
+            font: 20px bold;
+          }
+          .extra {
+            font: 14px caption;
+            color: $color_text-light;
+          }
+        }
+        .button {
+          font-size: 24px;
+        }
+      }
+
+      .content {
+        overflow: hidden;
+        max-height: 256px;
+
+        .notification {
+          min-height: 64px;
+          @include responsivePadding('left');
+          @include responsivePadding('right');
+          color: #666;
+          cursor: pointer;
+
+          .icon {
+            height: 28px;
+            width: 28px;
+            line-height: 28px;
+            font-size: 18px;
+            margin-right: 13px;
+            text-align: center;
+            border-radius: 50%;
+            background: #fff;
+            color: #888;
+            border: 1px solid #eee;
+          }
+
+          .title {
+            .name {
+              font: 18px bold;
+            }
+            .time {
+              font: 16px caption;
+            }
+          }
+
+          .close {
+            font-size: 18px;
+            width: 18px;
+            height: 18px;
+            line-height: 18px;
+          }
+
+          &.primary {
+            .icon {
+              background: $color_primary;
+              color: $color_primary-contrast;
+            }
+          }
+
+          &.accent {
+            .icon {
+              background: $color_accent;
+              color: $color_accent-contrast;
+            }
+          }
+
+          &.warn {
+            .icon {
+              background: $color_warn;
+              color: $color_warn-contrast;
+            }
+          }
+
+          &.read {
+            color: #999;
+
+            .name {
+              font-weight: normal;
+            }
+          }
+        }
+
+        .no-notifications {
+          @include responsivePaddingHalf('top');
+          @include responsivePaddingHalf('bottom');
+          text-align: center;
+          color: $color_text-dark;
+          font-size: 14px;
+        }
+      }
+
+      .footer {
+        border-top: 1px solid #e0e0e0;
+        min-height: 42px;
+
+        .action {
+          cursor: pointer;
+          color: black;
+          text-align: center;
+          font-size: 13px;
+          &.done {
+            color: #aaa;
+          }
+        }
+      }
+
+      .divider {
+        width: calc(100% - 30px);
+        height: 1px;
+        background: #eee;
+        margin: 0 16px 0 14px;
+      }
+    }
+  }
+
+  @include xs {
+    position: initial;
+    .icon-button {
+      height: 56px;
+    }
+  }
+}

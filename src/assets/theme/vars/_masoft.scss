@@ -1,0 +1,258 @@
+$media-lt-md: 'screen and (max-width: 959.99px)';
+@mixin lt-md {
+  @media #{$media-lt-md} {
+    @content;
+  }
+}
+
+$media-gt-md: 'screen and (max-width: 1279px)';
+@mixin gt-md {
+  @media #{$media-gt-md} {
+    @content;
+  }
+}
+
+$media-md: 'screen and (min-width: 960px) and (max-width: 1279px)';
+@mixin md {
+  @media #{$media-md} {
+    @content;
+  }
+}
+
+$media-lt-sm: 'screen and (max-width: 959px)';
+@mixin lt-sm {
+  @media #{$media-lt-sm} {
+    @content;
+  }
+}
+
+$media-gt-sm: 'screen and (min-width: 960px)';
+@mixin gt-sm {
+  @media #{$media-gt-sm} {
+    @content;
+  }
+}
+
+$media-xs: 'screen and (max-width: 599px)';
+@mixin xs {
+  @media #{$media-xs} {
+    @content;
+  }
+}
+
+$p_m_page: 24px;
+$p_m_page_small: 16px;
+$p_m_page_half: $p_m_page / 2;
+$p_m_page_small_half: $p_m_page_small / 2;
+
+@mixin responsivePadding($dir: all, $reverse: false) {
+  @if $reverse == false {
+    @if $dir == 'all' {
+      padding: $p_m_page;
+
+      @include gt-md {
+        padding: $p_m_page_small;
+      }
+    } @else if $dir == 'top' {
+      padding-top: $p_m_page;
+
+      @include gt-md {
+        padding-top: $p_m_page_small;
+      }
+    } @else if $dir == 'right' {
+      padding-right: $p_m_page;
+
+      @include gt-md {
+        padding-right: $p_m_page_small;
+      }
+    } @else if $dir == 'bottom' {
+      padding-bottom: $p_m_page;
+
+      @include gt-md {
+        padding-bottom: $p_m_page_small;
+      }
+    } @else if $dir == 'left' {
+      padding-left: $p_m_page;
+
+      @include gt-md {
+        padding-left: $p_m_page_small;
+      }
+    }
+  } @else if $reverse == true {
+    @if $dir == 'all' {
+      margin: -$p_m_page;
+
+      @include gt-md {
+        margin: -$p_m_page_small;
+      }
+    } @else if $dir == 'top' {
+      margin-top: -$p_m_page;
+
+      @include gt-md {
+        margin-top: -$p_m_page_small;
+      }
+    } @else if $dir == 'right' {
+      margin-right: -$p_m_page;
+
+      @include gt-md {
+        margin-right: -$p_m_page_small;
+      }
+    } @else if $dir == 'bottom' {
+      margin-bottom: -$p_m_page;
+
+      @include gt-md {
+        margin-bottom: -$p_m_page_small;
+      }
+    } @else if $dir == 'left' {
+      margin-left: -$p_m_page;
+
+      @include gt-md {
+        margin-left: -$p_m_page_small;
+      }
+    }
+  }
+}
+
+@mixin responsivePaddingHalf($dir: all, $reverse: false) {
+  @if $reverse == false {
+    @if $dir == 'all' {
+      padding: $p_m_page_half;
+
+      @include gt-md {
+        padding: $p_m_page_small_half;
+      }
+    } @else if $dir == 'top' {
+      padding-top: $p_m_page_half;
+
+      @include gt-md {
+        padding-top: $p_m_page_small_half;
+      }
+    } @else if $dir == 'right' {
+      padding-right: $p_m_page_half;
+
+      @include gt-md {
+        padding-right: $p_m_page_small_half;
+      }
+    } @else if $dir == 'bottom' {
+      padding-bottom: $p_m_page_half;
+
+      @include gt-md {
+        padding-bottom: $p_m_page_small_half;
+      }
+    } @else if $dir == 'left' {
+      padding-left: $p_m_page_half;
+
+      @include gt-md {
+        padding-left: $p_m_page_small_half;
+      }
+    }
+  } @else if $reverse == true {
+    @if $dir == 'all' {
+      margin: -$p_m_page_half;
+
+      @include gt-md {
+        margin: -$p_m_page_small_half;
+      }
+    } @else if $dir == 'top' {
+      margin-top: -$p_m_page_half;
+
+      @include gt-md {
+        margin-top: -$p_m_page_small_half;
+      }
+    } @else if $dir == 'right' {
+      margin-right: -$p_m_page_half;
+
+      @include gt-md {
+        margin-right: -$p_m_page_small_half;
+      }
+    } @else if $dir == 'bottom' {
+      margin-bottom: -$p_m_page_half;
+
+      @include gt-md {
+        margin-bottom: -$p_m_page_small_half;
+      }
+    } @else if $dir == 'left' {
+      margin-left: -$p_m_page_half;
+
+      @include gt-md {
+        margin-left: -$p_m_page_small_half;
+      }
+    }
+  }
+}
+
+@mixin responsiveMargin($dir: all) {
+  @if $dir == 'all' {
+    margin: $p_m_page;
+
+    @include gt-md {
+      margin: $p_m_page_small;
+    }
+  } @else if $dir == 'top' {
+    margin-top: $p_m_page;
+
+    @include gt-md {
+      margin-top: $p_m_page_small;
+    }
+  } @else if $dir == 'right' {
+    margin-right: $p_m_page;
+
+    @include gt-md {
+      margin-right: $p_m_page_small;
+    }
+  } @else if $dir == 'bottom' {
+    margin-bottom: $p_m_page;
+
+    @include gt-md {
+      margin-bottom: $p_m_page_small;
+    }
+  } @else if $dir == 'left' {
+    margin-left: $p_m_page;
+
+    @include gt-md {
+      margin-left: $p_m_page_small;
+    }
+  }
+}
+
+@mixin responsiveMarginHalf($dir: all) {
+  @if $dir == 'all' {
+    margin: $p_m_page_half;
+
+    @include gt-md {
+      margin: $p_m_page_small_half;
+    }
+  } @else if $dir == 'top' {
+    margin-top: $p_m_page_half;
+
+    @include gt-md {
+      margin-top: $p_m_page_small_half;
+    }
+  } @else if $dir == 'right' {
+    margin-right: $p_m_page_half;
+
+    @include gt-md {
+      margin-right: $p_m_page_small_half;
+    }
+  } @else if $dir == 'bottom' {
+    margin-bottom: $p_m_page_half;
+
+    @include gt-md {
+      margin-bottom: $p_m_page_small_half;
+    }
+  } @else if $dir == 'left' {
+    margin-left: $p_m_page_half;
+
+    @include gt-md {
+      margin-left: $p_m_page_small_half;
+    }
+  }
+}
+
+@mixin unselectable {
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}

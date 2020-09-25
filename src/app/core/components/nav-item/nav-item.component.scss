@@ -1,0 +1,44 @@
+@import '../../../../assets/theme/core/core';
+// TODO: refactor
+.rippleButton {
+  cursor: pointer;
+  position: relative;
+  padding: 8px;
+  .navButton {
+    color: $color_text-darkest;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.1s;
+    padding: 0px 25px;
+    .mat-title {
+      margin: 0px;
+    }
+    .arrow {
+      width: 15px;
+      height: 15px;
+      font-size: 18px;
+    }
+  }
+}
+.active {
+  background-color: rgb(240, 240, 240);
+}
+
+.rippleButton:hover:not(:focus) {
+  background-color: #f0f0f0;
+}
+.letter-icon {
+  background-color: #e6e6e6;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+masoft-nav-item {
+  .mat-title {
+    padding-left: 5px;
+  }
+}

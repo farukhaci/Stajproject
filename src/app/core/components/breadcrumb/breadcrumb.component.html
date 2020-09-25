@@ -1,0 +1,18 @@
+<ng-container *ngIf="breadcrumbs">
+  <div fxLayout="column" fxLayoutAlign="space-around">
+    <div class="mat-title title" style="margin: 0;">
+      {{ breadcrumbs[breadcrumbs.length - 1].label }}
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <span class="inactive">
+        <mat-icon style="cursor: pointer;">home</mat-icon>
+      </span>
+      <ng-container *ngFor="let breadcrumb of breadcrumbs; let last = last">
+        <span class="arrow"> <mat-icon>keyboard_arrow_right</mat-icon></span>
+        <span [ngClass]="{ inactive: !last, active: last }" style="cursor: pointer; font-size: 15px; margin-bottom: 3.5px;">{{
+          breadcrumb.label
+        }}</span>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>

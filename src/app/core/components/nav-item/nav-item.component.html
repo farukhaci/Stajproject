@@ -1,0 +1,70 @@
+<div *ngFor="let navItem of navItems">
+  <div matRipple matRippleColor="#F1F1F1F1F1" class="rippleButton" routerLinkActive="active" (click)="open(navItem)">
+    <ng-container [ngSwitch]="hasSubNav(navItem)">
+      <ng-container *ngSwitchCase="true">
+        <div class="navButton" fxLayout="row" fxLayoutAlign="space-between center">
+          <span class="mat-title">{{ navItem.title }}</span>
+          <ng-container *ngIf="navItem.icon; else initials">
+            <span fxLayout="row" fxLayoutAlign="center center">
+              <mat-icon
+                [@rotatedState]="{
+                  value: isOpen(navItem),
+                  params: { default: 0, deg: 90 }
+                }"
+                class="arrow"
+                >keyboard_arrow_right</mat-icon
+              >
+              <mat-icon>{{ navItem.icon }}</mat-icon>
+            </span>
+          </ng-container>
+          <ng-template #initials>
+            <span fxLayout="row" fxLayoutAlign="center center">
+              <mat-icon
+                [@rotatedState]="{
+                  value: isOpen(navItem),
+                  params: { default: 0, deg: 90 }
+                }"
+                class="arrow"
+                >keyboard_arrow_right</mat-icon
+              >
+              <span class="letter-icon">{{ getInitials(navItem) }}</span>
+            </span>
+          </ng-template>
+        </div>
+      </ng-container>
+      <ng-container *ngSwitchCase="false">
+        <a class="navButton" [routerLink]="navItem.navLink" fxLayout="row" fxLayoutAlign="space-between center">
+          <span class="mat-title">{{ navItem.title }}</span>
+          <ng-container *ngIf="navItem.icon; else initials">
+            <mat-icon>{{ navItem.icon }}</mat-icon>
+          </ng-container>
+          <ng-template #initials>
+            <span class="letter-icon">{{ getInitials(navItem) }}</span>
+          </ng-template>
+        </a>
+      </ng-container>
+    </ng-container>
+  </div>
+  <div *ngIf="isOpen(navItem)" [@listFade]="true" class="subItems">
+    <ng-container *ngFor="let subNav of navItem.subNavs">
+      <ng-container [ngSwitch]="hasSubNav(subNav)">
+        <ng-container *ngSwitchCase="true">
+          <masoft-nav-item [navItems]="[subNav]"></masoft-nav-item>
+        </ng-container>
+        <ng-container *ngSwitchCase="false">
+          <div matRipple matRippleColor="#F1F1F1F1F1" class="rippleButton" routerLinkActive="active">
+            <a class="navButton" [routerLink]="subNav.navLink" fxLayout="row" fxLayoutAlign="space-between center">
+              <span class="mat-title">{{ subNav.title }}</span>
+              <ng-container *ngIf="subNav.icon; else initials">
+                <mat-icon>{{ subNav.icon }}</mat-icon>
+              </ng-container>
+              <ng-template #initials>
+                <span class="letter-icon">{{ getInitials(subNav) }}</span>
+              </ng-template>
+            </a>
+          </div>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>
